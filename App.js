@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Text, StyleSheet, FlatList, Image} from 'react-native';
 import {
   SafeAreaProvider,
   initialWindowSafeAreaInsets,
@@ -36,6 +36,12 @@ const App = () => {
     <SafeAreaProvider initialSafeAreaInsets={initialWindowSafeAreaInsets}>
       <View style={styles.container}>
         <Header title="Shopping List"></Header>
+        <View style={styles.imageHolder}>
+          <Image
+            source={require('./components/assets/images/item1.png')}
+            style={styles.image}
+          />
+        </View>
         <AddItem addItem={addItem} />
         <FlatList
           data={items}
@@ -52,6 +58,17 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  imageHolder: {
+    alignItems: 'center',
+    alignContent: 'center',
+  },
+  image: {
+    borderWidth: 3,
+    borderColor: 'blue',
+    width: 80,
+    height: 80,
+    borderRadius: 100 / 2,
   },
 });
 
