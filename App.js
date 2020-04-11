@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {
+  SafeAreaProvider,
+  initialWindowSafeAreaInsets,
+} from 'react-native-safe-area-context';
 import Header from './components/Header';
 import ListItem from './components/ListItem';
 import AddItem from './components/AddItem';
@@ -29,17 +33,19 @@ const App = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Header title="Shopping List"></Header>
-      <AddItem addItem={addItem} />
-      <FlatList
-        data={items}
-        renderItem={({item}) => (
-          <ListItem item={item} deleteItem={deleteItem} />
-        )}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
+    <SafeAreaProvider initialSafeAreaInsets={initialWindowSafeAreaInsets}>
+      <View style={styles.container}>
+        <Header title="Shopping List"></Header>
+        <AddItem addItem={addItem} />
+        <FlatList
+          data={items}
+          renderItem={({item}) => (
+            <ListItem item={item} deleteItem={deleteItem} />
+          )}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
+    </SafeAreaProvider>
   );
 };
 

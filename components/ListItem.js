@@ -7,7 +7,7 @@ const ListItem = ({item, deleteItem}) => {
     <TouchableOpacity style={styles.listItem}>
       <View style={styles.listItemView}>
         <Image
-          source={require('./resources/images/item1.png')}
+          source={require('./assets/images/item1.png')}
           style={styles.listImage}
         />
         <Text style={styles.ListItemText}>{item.text}</Text>
