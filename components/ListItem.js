@@ -1,16 +1,21 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 
 const ListItem = ({item, deleteItem}) => {
   return (
     <TouchableOpacity style={styles.listItem}>
       <View style={styles.listItemView}>
+        <Image
+          source={require('./resources/images/item1.png')}
+          style={styles.listImage}
+        />
         <Text style={styles.ListItemText}>{item.text}</Text>
         <Icon
           name="cancel"
           size={20}
           color="red"
+          style={styles.delete}
           onPress={() => deleteItem(item.id)}
         />
       </View>
@@ -27,11 +32,19 @@ const styles = StyleSheet.create({
   },
   listItemView: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
   },
   ListItemText: {
     fontSize: 18,
+    marginLeft: 10,
+  },
+  listImage: {
+    width: 50,
+    height: 50,
+  },
+  delete: {
+    position: 'absolute',
+    right: 10,
   },
 });
 export default ListItem;
