@@ -9,8 +9,8 @@ import {
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 
 const AddItem = ({addItem}) => {
-  const [text, setText] = useState('');
-  const onChange = (textValue) => setText(textValue);
+  const [name, setName] = useState('');
+  const onChange = (nameValue) => setName(nameValue);
   return (
     <View>
       <TextInput
@@ -18,7 +18,7 @@ const AddItem = ({addItem}) => {
         style={styles.input}
         onChangeText={onChange}
       />
-      <TouchableOpacity style={styles.btn} onPress={() => addItem(text)}>
+      <TouchableOpacity style={styles.btn} onPress={() => addItem(name)}>
         <Text style={styles.btnText}>
           <Icon name="add" color="white" size={20} /> Add Item
         </Text>

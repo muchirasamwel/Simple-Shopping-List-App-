@@ -10,7 +10,7 @@ const ListItem = ({item, deleteItem}) => {
           source={require('./assets/images/item1.png')}
           style={styles.listImage}
         />
-        <Text style={styles.ListItemText}>{item.text}</Text>
+        <Text style={styles.ListItemText}>{item.name}</Text>
         <Icon
           name="cancel"
           size={20}

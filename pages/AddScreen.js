@@ -14,6 +14,7 @@ import {
 import Header from '../components/Header';
 import ListItem from '../components/ListItem';
 import AddItem from '../components/AddItem';
+import axios from 'axios';
 
 export default class AddScreen extends React.Component {
   static navigationOptions = {
@@ -23,10 +24,10 @@ export default class AddScreen extends React.Component {
     super();
     this.state = {
       items: [
-        {id: 1, text: 'Book'},
-        {id: 2, text: 'Laptop'},
-        {id: 3, text: 'Code'},
-        {id: 4, text: 'Array'},
+        {id: 1, name: 'Book'},
+        {id: 2, name: 'Laptop'},
+        {id: 3, name: 'Code'},
+        {id: 4, name: 'Array'},
       ],
     };
   }
@@ -34,13 +35,33 @@ export default class AddScreen extends React.Component {
     return Math.floor(Math.random() * 1000) + 1;
   };
   deleteItem = (id) => {
-    let items = this.state.items.filter((item) => item.id != id);
-    this.setState({items: items});
+    // let items = this.state.items.filter((item) => item.id != id);
+    axios
+      .delete(`http://192.168.0.12:8091/delete-item/?id=` + id)
+      .then((res) => {
+        alert(res.data);
+      });
+    this.getItems();
   };
-  addItem = (text) => {
-    let items = [{id: this.generateRandom(), text}, ...this.state.items];
-    this.setState({items: items});
+  addItem = (name) => {
+    let item = {id: this.generateRandom(), name};
+    //let items = [{id: this.generateRandom(), name}, ...this.state.items];
+    axios.post(`http://192.168.0.12:8091/add-item`, item).then((res) => {
+      alert(res.data);
+    });
+    this.getItems();
   };
+
+  getItems = async () => {
+    axios.get(`http://192.168.0.12:8091/get-items`).then((res) => {
+      const itemsList = res.data;
+      this.setState({items: itemsList});
+    });
+  };
+
+  componentDidMount() {
+    this.getItems();
+  }
 
   render() {
     const {navigate} = this.props.navigation;
