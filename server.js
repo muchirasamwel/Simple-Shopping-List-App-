@@ -4,8 +4,12 @@ const port = 8091;
 let mysql = require('mysql');
 let bodyParser = require('body-parser');
 
-app.use(bodyParser.json({ type: 'application/json' }));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({
+    type: 'application/json'
+}));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 let con = mysql.createConnection({
     host: '192.168.10.10',
@@ -21,7 +25,7 @@ let server = app.listen(port, function() {
 });
 
 con.connect(function(error) {
-    if (error) console.log('unexpected error');
+    if (error) console.log('unexpected error '+error);
     else console.log('connected');
 });
 

@@ -16,6 +16,7 @@
         "express": "^4.17.1",
         "fsevents": "^2.1.2",
         "mysqli": "^3.0.11",
+        "prop-types": "^15.7.2",
         "react": "16.11.0",
         "react-native": "0.62.2",
         "react-native-gesture-handler": "^1.6.1",
@@ -25,6 +26,9 @@
         "react-native-vector-icons": "^6.6.0",
         "react-navigation": "^4.3.7",
         "react-navigation-stack": "^2.3.11",
+        "react-redux": "^7.2.0",
+        "redux": "^4.0.5",
+        "redux-thunk": "^2.3.0",
         "uuidv4": "^6.0.7"
     },
     "devDependencies": {
