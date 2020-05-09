@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
     right: 10,
   },
 });
-export default ListItem;
+export default React.memo(ListItem);

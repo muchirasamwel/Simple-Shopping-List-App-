@@ -6,7 +6,6 @@ const initialState = {
 };
 
 function rootReducer(state = initialState, action) {
-     console.log(action.type + "action id "+ action.id);
     switch (action.type) {
         case type.FETCH_ITEMS:
             return Object.assign({}, state, {
