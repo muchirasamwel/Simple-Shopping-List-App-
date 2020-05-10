@@ -24,7 +24,7 @@ import TouchableOpacityG from "../components/TouchableOpacityG";
 class AddScreen extends React.Component {
     static navigationOptions = {
         title: 'Shopping List',
-        headerShown: false,
+        // headerShown: false,
     };
 
     constructor() {
@@ -63,7 +63,7 @@ class AddScreen extends React.Component {
         return (
             <SafeAreaProvider initialSafeAreaInsets={initialWindowSafeAreaInsets}>
                 <View style={styles.container}>
-                    <Header title="Shopping List"></Header>
+                    {/*<Header title="Shopping List"></Header>*/}
                     <Svg viewBox="0 50 1440 190" style={styles.body}>
                         <Text style={styles.add_items}>Add more Items</Text>
                         <Path onPress={() => navigate('Home')}
@@ -77,14 +77,6 @@ class AddScreen extends React.Component {
                                 style={styles.image}/>
                         </TouchableOpacityG>
                     </Svg>
-                    {/*<View style={styles.imageHolder}>*/}
-                    {/*    <TouchableOpacity onPress={() => navigate('Home')}>*/}
-                    {/*        <Image*/}
-                    {/*            source={require('../components/assets/images/item1.png')}*/}
-                    {/*            style={styles.image}*/}
-                    {/*        />*/}
-                    {/*    </TouchableOpacity>*/}
-                    {/*</View>*/}
                     <AddItem addItem={this.addItem}/>
                     <FlatList
                         data={this.props.items}

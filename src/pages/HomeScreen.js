@@ -15,7 +15,7 @@ import {connect} from "react-redux";
 class HomeScreen extends React.Component {
     static navigationOptions = {
         title: 'Shopping List',
-        headerShown: false,
+        // headerShown: false,
     };
 
     componentDidMount() {
@@ -33,7 +33,7 @@ class HomeScreen extends React.Component {
         return (
             <SafeAreaProvider initialSafeAreaInsets={initialWindowSafeAreaInsets}>
                 <View style={styles.container}>
-                    <Header title="Shopping List"></Header>
+                    {/*<Header title="Shopping List"></Header>*/}
 
                     <Svg viewBox="0 50 1440 190" style={styles.body}>
                         <Text style={styles.welcome}>Welcome Home</Text>
